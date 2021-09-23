@@ -36,17 +36,12 @@
 			   $request3 = $db->prepare("INSERT INTO utilisateurs (Nom,Prenom,Email,Telephone,IdLogin)
 			   VALUES (:Nom,:Prenom,:Email,:Telephone,:IdLogin)");
 			   $request3->execute(dismountWithout($client));
-			   echo  " <script>
-				window.onload = function() 
-				  {
-					validation();
-				  }; 
-			    </script>";
+			   header("Location: index.html");
 				
 			}
 			else
 			{	
-				echo  " test";
+				echo  " Non ti mal";
 			}
 		
 		 }
