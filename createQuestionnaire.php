@@ -1,3 +1,15 @@
+
+
+
+<?php
+include('connexion.php');
+if(isset($_POST['question'])||isset($_POST['bonneRep']))
+{
+    echo"ok";
+}
+
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -23,7 +35,7 @@ createQuestionnaire.php
         </div>
         <div class="signup-content">
                 
-            <form method="POST" class="register-form" id="createQuestion">
+            <form method="POST" class="register-form" id="createQuestion" action="createQuestionnaire.php">
                 
                 <div class="form-group">
                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
