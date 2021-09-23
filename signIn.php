@@ -1,65 +1,51 @@
 <?php
-	 
+	 include('Class/Users.php');
+	 include('Class/Login.php');
+	 include('Function/Function.php');
+	 include('connexion.php');
+
 		try{ 
 		  //on verifie que l'identifiant du client n'existe pas avent de l'inscrire
-		  $ident = $_POST["ident"];
-		  $requete = $db->prepare("SELECT * FROM `clients` WHERE Identifiant = :Identifiant");
-		  $request3->execute(array('Identifiant' => $ident));
-		  $requete->setFetchMode(PDO::FETCH_CLASS, 'Clients');
+		  $ident = $_POST["login"];
+		  $requete = $db->prepare("SELECT * FROM `Login` WHERE Login = :Identifiant");
+		  $requete->execute(array('Identifiant' => $ident));
+		  $requete->setFetchMode(PDO::FETCH_CLASS, 'Login');
 		  $client = $requete->fetchAll();
 		  
-		  
-			  
 			if (empty($client) ) {
 				//si il existe on rempli les l'objet client
-				$client = new Clients();
-				$client->setNom($_POST["nom"]);
+				$login = new Login();
+				$login->setLogin($_POST["login"]);
+				$login->setMdp($_POST["pass"]);
+				$request = $db->prepare("INSERT INTO Login (Login,Mdp)
+				VALUES (:Login,MD5(:Mdp))");
+				$request->execute(dismount($login));
+
+				$requete2 = $db->query("SELECT * FROM `Login` ORDER BY IdLogin DESC");
+		  		$requete2->setFetchMode(PDO::FETCH_CLASS, 'Login');
+				$login = $requete2->fetch();
+
+
+				$client = new Users();
+				$client->setNom($_POST["name"]);
 				$client->setPrenom($_POST["prenom"]);
 				$client->setTelephone($_POST["phone"]);
 				$client->setEmail($_POST["email"]);
-				$client->setIdentifiant($_POST["ident"]);
-				$client->setPassword($_POST["pass"]);
-				$_SESSION['nom']="";
-				$_SESSION['prenom']="";
-				$_SESSION['tel']="";
-				$_SESSION['mail']="";
+				$client->setIdLogin($login->getIdLogin());
 				
-			   $request = $db->prepare("INSERT INTO clients (Nom,Prenom,Telephone,Email,Identifiant,Password)
-			   VALUES (:Nom,:Prenom,:Telephone,:Email,:Identifiant,MD5(:Password))");
-			   $request->execute(dismountC($client));
-			   $_SESSION['ident']=$client->getIdentifiant();
-			   echo  " <script>
-				window.onload = function() 
-				  {
-					validation();
-				  }; 
-			    </script>";
+			   $request3 = $db->prepare("INSERT INTO utilisateurs (Nom,Prenom,Email,Telephone,IdLogin)
+			   VALUES (:Nom,:Prenom,:Email,:Telephone,:IdLogin)");
+			   $request3->execute(dismountWithout($client));
+			   header("Location: index.html");
 				
 			}
 			else
-			//sinon on lui dis que sont identifiant est incorect et on rempli les champs avec les info remplis auparavant
-			//afin qu'il n'ai pas à le refaire
 			{	
-				$_SESSION['nom']=$_POST["nom"];
-				$_SESSION['prenom']=$_POST["prenom"];
-				$_SESSION['tel']=$_POST["phone"];
-				$_SESSION['mail']=$_POST["email"];
-
-				echo  " <script>
-				window.onload = function() 
-				  {
-					mafonction2();
-				  }; 
-			    </script>";
-				
-			
+				echo  " Non ti mal";
 			}
-
-			//////////////////
 		
 		 }
-		 
-		
+
 		catch(Exception $ex){
 	  
 			echo $ex;
