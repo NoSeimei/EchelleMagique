@@ -1,3 +1,25 @@
+<?php
+include('connexion.php');
+if(isset($_SESSION['ident2'])&& isset($_SESSION['nom2']) && isset($_SESSION['prenom2'])){
+	$_SESSION['ok']="tuesco";
+}
+else
+{
+	$_SESSION['ok']="";
+}
+include('connexion.php');
+
+try {
+    $requete1 = $db->query("SELECT * FROM question INNER JOIN reponse ON question.IdQuestion = reponse.IdQuestion WHERE question.IdQuestion = 1");
+    $requete1->setFetchMode(PDO::FETCH_CLASS, 'Question');
+    $lesQuestion = $requete1->fetchAll();
+} catch (Exception $exE) {
+
+    echo $exE;
+}
+
+?>
+
 <!doctype html>
 <html>
 
