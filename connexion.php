@@ -13,3 +13,4 @@ try{
     {
     echo $ex;
     }
+    session_start();
