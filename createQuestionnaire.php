@@ -27,26 +27,26 @@ createQuestionnaire.php
                 
                 <div class="form-group">
                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                    <input type="text" name="question" id="question" placeholder="Question" require="true"/>
+                    <input type="text" name="question" id="question" placeholder="Question" required="true"/>
                 </div>
                 <div class="row">
                     <div class="form-group col-6">
                         <label for="email"><i class="zmdi zmdi-email"></i></label>
-                        <input type="text" name="bonneRep" id="bonneRep" placeholder="Bonne réponse" require="true" />
+                        <input type="text" name="bonneRep" id="bonneRep" placeholder="Bonne réponse" required="true" />
                     </div>
                     <div class="form-group col-6">
                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="text" name="Rep" id="Rep" placeholder="Réponse 1" require="true" />
+                        <input type="text" name="Rep" id="Rep" placeholder="Réponse 1" required="true" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-6">
                         <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                        <input type="text" name="Rep2" id="Rep2" placeholder="Réponse 2" require="true" />
+                        <input type="text" name="Rep2" id="Rep2" placeholder="Réponse 2" required="true" />
                     </div>
                     <div class="form-group col-6">
                         <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                        <input type="text" name="Rep3" id="Rep3" placeholder="Réponse 3" require="true" />
+                        <input type="text" name="Rep3" id="Rep3" placeholder="Réponse 3" required="true" />
                     </div>
                 </div>
                 <!--<div class="form-group form-button">
