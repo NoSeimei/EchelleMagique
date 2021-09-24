@@ -7,7 +7,6 @@ else
 {
 	$_SESSION['ok']="";
 }
-include('connexion.php');
 
 try {
     $requete1 = $db->query("SELECT * FROM question INNER JOIN reponse ON question.IdQuestion = reponse.IdQuestion WHERE question.IdQuestion = 1");
@@ -144,6 +143,7 @@ try {
                                 class="fa fa-shopping-bag"></i></span> <span class="step"><i
                                 class="fa fa-car"></i></span> <span class="step"><i class="fa fa-spotify"></i></span>
                         <span class="step"><i class="fa fa-mobile-phone"></i></span> </div>
+                        <?php foreach($lesQuestion as $question) { ?>
                     <div class="tab">
                         <h6>Q. Laquelle de ces méthodes n'est pas une méthode traditionnelle ?    </h6>
                         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
@@ -162,60 +162,7 @@ try {
                                 </label></p>
                         </div>
                     </div>
-                    <div class="tab">
-                        <h6>Quelle est le taux de succès lors de la réalisation d'un projet? </h6>
-                        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                            <p><br></br><input type="radio" name="radio"> <label class="options">Small Business Owner or
-                                    Employee
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p> <input type="radio" name="radio"> <label class="options">Nonprofit Owner or Employee
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p><input type="radio" name="radio"> <label class="options">Journalist or Activist
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p><input type="radio" name="radio"> <label class="options">Other <span
-                                        class="checkmark"></span>
-                                </label></p>
-                        </div>
-                    </div>
-                    <div class="tab">
-                        <h6>Que signifie le pair programming?</h6>
-                        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                            <p><br></br><input type="radio" name="radio"> <label class="options">Small Business Owner or
-                                    Employee
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p> <input type="radio" name="radio"> <label class="options">Nonprofit Owner or Employee
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p><input type="radio" name="radio"> <label class="options">Journalist or Activist
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p><input type="radio" name="radio"> <label class="options">Other <span
-                                        class="checkmark"></span>
-                                </label></p>
-                        </div>
-                    </div>
-                    <div class="tab">
-                        <h6>Lequel n'est pas un pilier de scrum  ?</h6>
-                        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                            <p><br></br><input type="radio" name="radio"> <label class="options">Small Business Owner or
-                                    Employee
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p> <input type="radio" name="radio"> <label class="options">Nonprofit Owner or Employee
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p><input type="radio" name="radio"> <label class="options">Journalist or Activist
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p><input type="radio" name="radio"> <label class="options">Other <span
-                                        class="checkmark"></span>
-                                </label></p>
-                        </div>
-                    </div>
+                    <?php } ?>
                     <div class="tab">
                         <h6>Lequel de ces roles scrum existe? </h6>
                         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
