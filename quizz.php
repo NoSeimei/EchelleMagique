@@ -164,24 +164,6 @@ try {
                     </div>
                     <?php } ?>
                     <div class="tab">
-                        <h6>Lequel de ces roles scrum existe? </h6>
-                        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                            <p><br></br><input type="radio" name="radio"> <label class="options">Small Business Owner or
-                                    Employee
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p> <input type="radio" name="radio"> <label class="options">Nonprofit Owner or Employee
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p><input type="radio" name="radio"> <label class="options">Journalist or Activist
-                                    <span class="checkmark"></span>
-                                </label></p>
-                            <p><input type="radio" name="radio"> <label class="options">Other <span
-                                        class="checkmark"></span>
-                                </label></p>
-                        </div>
-                    </div>
-                    <div class="tab">
                         <h6>Comment appelle-t-on les acteur externes d'un projet? </h6>
                         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
                             <p><br></br><input type="radio" name="radio"> <label class="options">Small Business Owner or
