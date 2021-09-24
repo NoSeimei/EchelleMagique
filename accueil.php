@@ -14,40 +14,47 @@
 
 <body>
 
-  <?php
-  include("connexion.php");
-  include("Class/Questionnaire.php");
-  try {
-    //on récupère tout les questionnaire
-    $requete = $db->query("SELECT * FROM `Questionnaire` ");
-    $requete->execute();
-    $requete->setFetchMode(PDO::FETCH_CLASS, 'Questionnaire');
-    $questionnaire = $requete->fetchAll();
+  <div class="container-fluid p-5 bg-success text-white text-center">
+    <h1>Echelle Magique</h1><br>
+    <p>Répondez correctement aux questions et atteignez le sommet de l'échelle en premier ! </p><br>
+    <p>Choisissez un questionnaire pour commencer </p>
 
-    foreach ($questionnaire as $questionnaires) {
-  ?>
+  </div>
+  <div class="container">
+    <?php
+    include("connexion.php");
+    include("Class/Questionnaire.php");
+    try {
+      //on récupère tout les questionnaire
+      $requete = $db->query("SELECT * FROM `Questionnaire` ");
+      $requete->execute();
+      $requete->setFetchMode(PDO::FETCH_CLASS, 'Questionnaire');
+      $questionnaire = $requete->fetchAll();
 
-      <div class="row">
-        <div class="col-4 "></div>
+      foreach ($questionnaire as $questionnaires) {
+    ?>
 
-        <div class=" col-4card  mt-sm-5 my-1" style="width: 18rem;">
-          <div class="card-body  ml-sm-4 pl-sm-5 pt-2">
-            <h5 class="card-title"><?php echo $questionnaires->getTitre(); ?></h5>
-            <form method="POST" id="faireQuestion" action="">
-            <input type="submit" name="faire" id="faireQuestion" class="btn btn-success" value="Faire ce questionnaire" />
-            <input type="hidden" name="questionnaire" id="questionnaire" value="<?php echo $questionnaires->getIdQuestionnaire(); ?>" >
-            </form>
+        <div class="row">
+          <div class="col-4 "></div>
+
+          <div class=" col-4card  mt-sm-5 my-1" style="width: 18rem;">
+            <div class="card-body ">
+              <h4 class="card-title"><?php echo $questionnaires->getTitre(); ?></h4>
+              <form method="POST" id="faireQuestion" action="">
+                <input type="submit" name="faire" id="faireQuestion" class="btn btn-success" value="Faire ce questionnaire" />
+                <input type="hidden" name="questionnaire" id="questionnaire" value="<?php echo $questionnaires->getIdQuestionnaire(); ?>">
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-4 "></div>
+        <div class="col-4 "></div>
 
-  <?php }
-  } catch (Exception $e) {
-    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-  }
-  ?>
-
+    <?php }
+    } catch (Exception $e) {
+      echo 'Exception reçue : ',  $e->getMessage(), "\n";
+    }
+    ?>
+  </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
