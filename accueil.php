@@ -45,6 +45,10 @@
     echo 'Exception reçue : ',  $e->getMessage(), "\n";
   }
   ?>
+<?php
+include("echelle.php");
+?>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

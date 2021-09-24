@@ -23,7 +23,7 @@ if (isset($_POST["name"]) && isset($_POST["pass"])) {
       if ($theUser->getLogin() === $user && $theUser->getMdp() === $pass) {
 		
 
-        echo "test";
+        header("Location: accueil.php");
         break;
       } 
       

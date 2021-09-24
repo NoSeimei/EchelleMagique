@@ -102,3 +102,30 @@ body {
         word-spacing: 2px
     }
 }
+
+
+/* *{
+  font-family: Avenir, sans-serif;
+  font-size: 1em;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+} */
+
+.conteneur-flex {
+    /* display: flex; */
+    flex-flow: row wrap;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 2px solid black; */
+    width: 150px;
+}
+
+.conteneur-flex>div {
+    flex: 0 0 25%;
+    padding: 20px 0px;
+    /* background-color: gold; */
+    border: 2px solid black;
+}
