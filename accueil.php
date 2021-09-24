@@ -16,7 +16,7 @@
 
   <?php
   include("connexion.php");
-
+  include("Class/Questionnaire.php");
   try {
     //on récupère tout les questionnaire
     $requete = $db->query("SELECT * FROM `Questionnaire` ");
@@ -32,9 +32,11 @@
 
         <div class=" col-4card  mt-sm-5 my-1" style="width: 18rem;">
           <div class="card-body  ml-sm-4 pl-sm-5 pt-2">
-            <h5 class="card-title"><?php $questionnaires->getTitre ?></h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title"><?php echo $questionnaires->getTitre(); ?></h5>
+            <form method="POST" id="faireQuestion" action="">
+            <input type="submit" name="faire" id="faireQuestion" class="btn btn-success" value="Faire ce questionnaire" />
+            <input type="hidden" name="questionnaire" id="questionnaire" value="<?php echo $questionnaires->getIdQuestionnaire(); ?>" >
+            </form>
           </div>
         </div>
       </div>
